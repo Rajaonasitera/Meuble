@@ -24,10 +24,10 @@
             <ul class="nav navbar-nav" style="
                 margin-left: 600px;">
                 <li class="active"><a href="index.jsp">Accueil <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="PageInsertionStyle">Insert Style <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="PageInsertionCategorie">Insert Categorie <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="PageInsertionMateriel">Insert Materiel <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="PageInsertionVolume">Insert Volume <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="Insertion_style.jsp">Insert Style <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="Insertion_categorie.jsp">Insert Categorie <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="Insertion_materiel.jsp">Insert Materiel <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="Insertion_volume.jsp">Insert Volume <span class="sr-only">(current)</span></a></li>
                 <li class="active"><a href="PageInsertionMeuble">Insert Meuble <span class="sr-only">(current)</span></a></li>
                 <li class="active"><a href="PageInsertionStyleMateriel">Insert Style Materiel <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Contactez-nous</a></li>
