@@ -63,6 +63,56 @@ public class Style_materiel {
         }
     }
 
+    public Style_materiel[] getAllMaterielById(Connection c,int id_materiel)throws  Exception{
+        Boolean coTest = false;
+        try {
+            if (c==null||c.isClosed())
+                c = (new Connect()).connecter();
+                coTest = true;
+            List<Style_materiel> allS = new ArrayList<>();
+            java.sql.Statement st = c.createStatement();
+            String sql = "select * from style_materiel where id_materiel="+id_materiel;
+            ResultSet res = st.executeQuery(sql);
+            while (res.next()) {
+                allS.add(new Style_materiel(res.getInt(1),res.getInt(2),res.getInt(3)));
+            }
+            Style_materiel[] all = new Style_materiel[allS.size()];
+            return allS.toArray(all);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+            // TODO: handle exception
+        }finally{
+            if (coTest==true)
+                c.close();
+        }
+    }
+
+    public Style_materiel[] getAllStyleMateriel(Connection c)throws  Exception{
+        Boolean coTest = false;
+        try {
+            if (c==null||c.isClosed())
+                c = (new Connect()).connecter();
+                coTest = true;
+            List<Style_materiel> allS = new ArrayList<>();
+            java.sql.Statement st = c.createStatement();
+            String sql = "select * from style_materiel";
+            ResultSet res = st.executeQuery(sql);
+            while (res.next()) {
+                allS.add(new Style_materiel(res.getInt(1),res.getInt(2),res.getInt(3)));
+            }
+            Style_materiel[] all = new Style_materiel[allS.size()];
+            return allS.toArray(all);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+            // TODO: handle exception
+        }finally{
+            if (coTest==true)
+                c.close();
+        }
+    }
+
     public void insertStyleMateriel(Connection c, int idStyle, int idMateriel)throws Exception{
         Boolean coTest = false;
         try {

@@ -30,6 +30,30 @@ public class Volume {
         this.libelle = libelle;
     }
 
+    public Volume getVolume(Connection c, int id_Volume)throws Exception{
+        Boolean coTest = false;
+        try {
+            if (c==null||c.isClosed())
+                c = (new Connect()).connecter();
+                coTest = true;
+            Volume allS = new Volume();
+            java.sql.Statement st = c.createStatement();
+            String sql = "select * from Volume where id_Volume ="+id_Volume;
+            ResultSet res = st.executeQuery(sql);
+            while (res.next()) {
+                allS= new Volume(res.getInt(1),res.getString(2));
+            }
+            return allS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+            // TODO: handle exception
+        }finally{
+            if (coTest==true)
+                c.close();
+        }
+    }
+
     public Volume[] getAllVolume(Connection c)throws Exception{
         Boolean coTest = false;
         try {

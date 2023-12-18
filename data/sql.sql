@@ -1,6 +1,11 @@
 CREATE DATABASE meuble;
 \c meuble
 
+CREATE TABLE unite(
+    id_unite SERIAL PRIMARY KEY,
+    libelle VARCHAR(50)
+);
+
 CREATE TABLE categorie(
     id_categorie SERIAL PRIMARY KEY,
     libelle VARCHAR(50)
@@ -8,7 +13,8 @@ CREATE TABLE categorie(
 
 CREATE TABLE materiel(
     id_materiel SERIAL PRIMARY KEY,
-    libelle VARCHAR(50) 
+    libelle VARCHAR(50),
+    id_unite INT REFERENCES unite(id_unite)
 );
 
 CREATE TABLE style(
@@ -34,4 +40,17 @@ CREATE TABLE style_materiel(
     id_style INT REFERENCES style(id_style),
     id_materiel INT REFERENCES materiel(id_materiel)
 );
+
+CREATE TABLE fabrication(
+    id_fabrication SERIAL PRIMARY KEY,
+    id_style_materiel INT REFERENCES style_materiel(id_style_materiel),
+    id_categorie INT REFERENCES categorie(id_categorie),
+    id_volume INT REFERENCES volume(id_volume),
+    quantite DECIMAL
+);
+
+
+
+
+
 

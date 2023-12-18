@@ -55,6 +55,30 @@ public class Categorie {
         }
     }
 
+    public Categorie getCategorie(Connection c, int id_categorie)throws Exception{
+        Boolean coTest = false;
+        try {
+            if (c==null||c.isClosed())
+                c = (new Connect()).connecter();
+                coTest = true;
+            Categorie allS = new Categorie();
+            java.sql.Statement st = c.createStatement();
+            String sql = "select * from Categorie where id_catergorie ="+id_categorie;
+            ResultSet res = st.executeQuery(sql);
+            while (res.next()) {
+                allS= new Categorie(res.getInt(1),res.getString(2));
+            }
+            return allS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+            // TODO: handle exception
+        }finally{
+            if (coTest==true)
+                c.close();
+        }
+    }
+
      public void insertCategorie(Connection c, String libelle)throws Exception{
         Boolean coTest = false;
         try {
@@ -75,4 +99,6 @@ public class Categorie {
                 c.close();
         }
     }
+
+
 }
