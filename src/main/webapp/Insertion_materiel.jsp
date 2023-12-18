@@ -11,7 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil</title>
+  <title>Insertion Materiel</title>
   <link rel="stylesheet" href="resources/css/bootstrap.css">
   <link rel="stylesheet" href="resources/css/index.css">
 </head>
@@ -20,7 +20,7 @@
 <center>
 
   <div class="row" style="margin-top: 100px;width:500px ;padding-left: 40px;height: 400px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-    <h1>Veuillez inserer une style</h1>
+    <h1>Veuillez inserer un materiel</h1>
     <form class="form-horizontal" action="InsertionMateriel" method="get" style="margin-top: 70px; ">
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label col-lg-4">libelle</label>
