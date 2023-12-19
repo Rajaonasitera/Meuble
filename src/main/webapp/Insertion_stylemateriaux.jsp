@@ -16,7 +16,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil</title>
+  <title>Insertion Style materiaux</title>
   <link rel="stylesheet" href="resources/css/bootstrap.css">
   <link rel="stylesheet" href="resources/css/index.css">
   <%@include file="./Header.jsp"%>
@@ -25,7 +25,7 @@
 <center>
 
   <div class="row" style="margin-top: 100px;width:500px ;padding-left: 40px;height: 400px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-    <h1>Actions</h1>
+    <h1>Veuillez inserer style materiaux</h1>
     <form class="form-horizontal" action="InsertionStyleMateriel" method="get" style="margin-top: 70px; ">
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label col-lg-4">Style de meuble</label>
