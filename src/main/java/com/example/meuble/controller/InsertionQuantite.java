@@ -17,12 +17,16 @@ public class InsertionQuantite extends HttpServlet {
         try {
             Connect co = new Connect();
             Connection c = co.connecter();
-            int idStyleMateriel = Integer.parseInt(request.getParameter("stylemateriaux"));
             int idCategorie = Integer.parseInt(request.getParameter("categorie"));
+            int idStyleMateriel = Integer.parseInt(request.getParameter("styleMateriel"));
             int idVolume = Integer.parseInt(request.getParameter("volume"));
+            Style_materiel sm = new Style_materiel();
+            sm = sm.getAllStyleMaterielById(c,idStyleMateriel);
+            int idMateriel = sm.getId_materiel();
+            int idStyle = sm.getId_style();
             double quantite = Double.parseDouble(request.getParameter("quantite"));
             Fabrication f = new Fabrication();
-            f.insertionQuantite(c,idStyleMateriel,idCategorie,idVolume,quantite);
+            f.insertionQuantite(c, idCategorie, idStyle, idMateriel, idVolume, quantite);
             String lien = "Insertion_quantite";
             response.sendRedirect(lien);
         } catch (Exception e) {

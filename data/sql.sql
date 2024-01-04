@@ -43,8 +43,9 @@ CREATE TABLE style_materiel(
 
 CREATE TABLE fabrication(
     id_fabrication SERIAL PRIMARY KEY,
-    id_style_materiel INT REFERENCES style_materiel(id_style_materiel),
     id_categorie INT REFERENCES categorie(id_categorie),
+    id_style INT REFERENCES style(id_style),
+    id_materiel INT REFERENCES materiel(id_materiel),
     id_volume INT REFERENCES volume(id_volume),
     quantite DECIMAL
 );

@@ -33,9 +33,9 @@ public class Categorie {
     public Categorie[] getAllCategorie(Connection c)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Categorie> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from Categorie";
@@ -58,9 +58,9 @@ public class Categorie {
     public Categorie getCategorie(Connection c, int id_categorie)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             Categorie allS = new Categorie();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from Categorie where id_catergorie ="+id_categorie;
@@ -82,9 +82,9 @@ public class Categorie {
      public void insertCategorie(Connection c, String libelle)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Style> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "insert into categorie(libelle) values('"+libelle+"')";

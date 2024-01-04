@@ -41,9 +41,9 @@ public class Style_materiel {
     public Style_materiel[] getAllMateriel(Connection c,int id_style)throws  Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Style_materiel> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from style_materiel where id_style="+id_style;
@@ -66,9 +66,9 @@ public class Style_materiel {
     public Style_materiel[] getAllMaterielById(Connection c,int id_materiel)throws  Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Style_materiel> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from style_materiel where id_materiel="+id_materiel;
@@ -91,9 +91,9 @@ public class Style_materiel {
     public Style_materiel[] getAllStyleMateriel(Connection c)throws  Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Style_materiel> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from style_materiel";
@@ -113,17 +113,64 @@ public class Style_materiel {
         }
     }
 
+    public Style_materiel getAllStyleMaterielById(Connection c,int id)throws Exception{
+        Boolean coTest = false;
+        try {
+            if (c==null||c.isClosed()){
+                c = (new Connect()).connecter();
+                coTest = true;}
+            Style_materiel[] allSM = this.getAllStyleMateriel(c);
+            for (int i = 0; i < allSM.length; i++) {
+                if (allSM[i].getId_style_materiel()==id){
+                    return allSM[i];
+                }
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+            // TODO: handle exception
+        }finally{
+            if (coTest==true)
+                c.close();
+        }
+    }
+
     public void insertStyleMateriel(Connection c, int idStyle, int idMateriel)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-            coTest = true;
+                coTest = true;}
             List<Style> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "insert into style_materiel(id_style,id_materiel) values("+idStyle+","+idMateriel+")";
             int ok = st.executeUpdate(sql);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+            // TODO: handle exception
+        }finally{
+            if (coTest==true)
+                c.close();
+        }
+    }
+
+    public Boolean verification(Connection c,int idStyle,int idMateriel)throws Exception{
+        Boolean coTest = false;
+        try {
+            if (c==null||c.isClosed()){
+                c = (new Connect()).connecter();
+                coTest = true;}
+            
+            Style_materiel[] all = this.getAllStyleMateriel(c);
+            for (int i = 0; i < all.length; i++) {
+                if (all[i].getId_style()==idStyle&&all[i].getId_materiel()==idMateriel) {
+                    return true;
+                }
+            }
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

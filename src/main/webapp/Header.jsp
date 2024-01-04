@@ -30,6 +30,7 @@
                 <li class="active"><a href="Insertion_volume.jsp">Insert Volume <span class="sr-only">(current)</span></a></li>
                 <li class="active"><a href="PageInsertionMeuble">Insert Meuble <span class="sr-only">(current)</span></a></li>
                 <li class="active"><a href="PageInsertionStyleMateriel">Insert Style Materiel <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="PageInsertionQuantite">Insert Quantite <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Contactez-nous</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

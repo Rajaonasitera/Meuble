@@ -63,9 +63,9 @@ public class Quantite {
     public Quantite[] getAllQuantite(Connection c, int id_materiel)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             java.sql.Statement st = c.createStatement();
             String sql = "select * from Quantite where id_materiel=";
             ResultSet res = st.executeQuery(sql);

@@ -3,21 +3,23 @@
 <%@ page import="com.example.meuble.model.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Style_materiel[] allSM = (Style_materiel[]) request.getAttribute("allSM");
+    Style[] allS = (Style[]) request.getAttribute("allS");
     Categorie[] allC = (Categorie[]) request.getAttribute("allC");
     Volume[] allV = (Volume[]) request.getAttribute("allV");
-    Style[] allSt = (Style[]) request.getAttribute("allSt");
     Materiel[] allM = (Materiel[]) request.getAttribute("allM");
+    Style_materiel[] allSM = (Style_materiel[]) request.getAttribute("allSM");
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/index.css">
+    <title>Insertion quantite</title>
+    <link rel="stylesheet" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/css/index.css">
+    <%@include file="./Header.jsp"%>
 </head>
+
 <body style="background-color:#e7e7e7;">
           
           <div style="padding-left: 60px;padding-right: 60px;box-sizing: border-box;">
@@ -39,9 +41,9 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-2 control-label col-lg-4">Style et materiaux</label>
                       <div class="col-sm-10 col-lg-3">
-                       <select name="stylemateriaux" id="" class="form-control">
+                       <select name="styleMateriel" id="" class="form-control">
                            <% for (int i = 0; i < allSM.length; i++) {%>
-                               <option value="<%out.print(allSM[i].getId_style_materiel());%>"><%out.print(allSt[i].getLibelle());%> , <%out.print(allM[i].getLibelle());%></option>
+                               <option value="<%out.print(allSM[i].getId_style());%>"><%out.print(allS[i].getLibelle());%> , <%out.print(allM[i].getLibelle());%></option>
                            <%}%>
                        </select>
                       </div>
@@ -87,7 +89,3 @@
     
 </body>
 </html>
-<%}catch (Exception e){
-
-}
-%>

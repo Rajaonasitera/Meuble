@@ -34,9 +34,9 @@ public class Style {
     public Style[] getAllStyle(Connection c)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Style> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from style";
@@ -59,9 +59,9 @@ public class Style {
     public Style getStyleById(Connection c, int idStyle)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             Style[] all = this.getAllStyle(c);
             for (int i = 0; i < all.length; i++) {
                 if (all[i].getId_style()==idStyle)
@@ -81,9 +81,9 @@ public class Style {
     public void insertStyle(Connection c, String libelle)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Style> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "insert into style(libelle) values('"+libelle+"')";

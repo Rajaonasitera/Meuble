@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "PageInsertionQuantite", value = "/PageInsertionQuantite")
 public class PageInsertionQuantite extends HttpServlet {
@@ -24,25 +26,32 @@ public class PageInsertionQuantite extends HttpServlet {
             Volume vo = new Volume();
             Style s = new Style();
             Materiel m = new Materiel();
-            Style_materiel[] allSM = sm.getAllStyleMateriel(c);
             Categorie[] allC = ca.getAllCategorie(c);
             Volume[] allV = vo.getAllVolume(c);
-            Style[] allSt = new Style[allSM.length];
-            Materiel[] allM = new Materiel[allSM.length];
+            Style_materiel[] allSM = sm.getAllStyleMateriel(c);
+            List<Style> allS = new ArrayList<>();
+            List<Materiel> allM = new ArrayList<>();
+            
             for (int i = 0; i < allSM.length; i++) {
-                allSt[i] = s.getStyleById(c,allSt[i].getId_style());
-                allM[i] = m.getMateriel(c,allSM[i].getId_materiel());
+                allS.add(s.getStyleById(c, allSM[i].getId_style()));
+                allM.add(m.getMaterielById(c, allSM[i].getId_materiel()));
             }
-            request.setAttribute("allSM", allSM);
+
+            Style[] alls = new Style[allS.size()];
+            Materiel[] allm = new Materiel[allM.size()];
+
+            request.setAttribute("allS", allS.toArray(alls));
             request.setAttribute("allC", allC);
             request.setAttribute("allV", allV);
-            request.setAttribute("allM", allM);
-            request.setAttribute("allSt", allSt);
+            request.setAttribute("allM", allM.toArray(allm));
+            request.setAttribute("allSM", allSM);
+
             String lien = "Insertion_quantite";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(lien+".jsp");
             requestDispatcher.forward(request,response);
 
-        } catch (Exception e) {
+        }catch(Exception e){
+            e.printStackTrace();
             // TODO: handle exception
         }
     }

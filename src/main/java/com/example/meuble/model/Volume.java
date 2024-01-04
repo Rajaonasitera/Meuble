@@ -33,9 +33,9 @@ public class Volume {
     public Volume getVolume(Connection c, int id_Volume)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             Volume allS = new Volume();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from Volume where id_Volume ="+id_Volume;
@@ -57,9 +57,9 @@ public class Volume {
     public Volume[] getAllVolume(Connection c)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-            coTest = true;
+                coTest = true;}
             List<Volume> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "select * from Volume";
@@ -82,9 +82,9 @@ public class Volume {
      public void insertVolume(Connection c, String libelle)throws Exception{
         Boolean coTest = false;
         try {
-            if (c==null||c.isClosed())
+            if (c==null||c.isClosed()){
                 c = (new Connect()).connecter();
-                coTest = true;
+                coTest = true;}
             List<Style> allS = new ArrayList<>();
             java.sql.Statement st = c.createStatement();
             String sql = "insert into volume(libelle) values('"+libelle+"')";
