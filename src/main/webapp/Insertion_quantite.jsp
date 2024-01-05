@@ -21,27 +21,15 @@
 </head>
 
 <body style="background-color:#e7e7e7;">
-          
-          <div style="padding-left: 60px;padding-right: 60px;box-sizing: border-box;">
-            <div class="details" style="height: 140px;background-color: white;border-radius: 20px;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);display: flex;">
-              <div class="logo">  
-                <img width="80px" src="images/logo.jpg" style=" margin-top: 18px;margin-left: 30px;" alt="">
-              </div>
-              <div class="infoResto" style="padding-left: 20px;padding-top: 10px;">
-                <h3>FANAKA</h3>
-                <p style="margin-left: 30px;color: gray;"><span class="glyphicon glyphicon-map-marker"></span> Andoharanofotsy</p>
-              </div>  
-            </div>
-          </div>
           <center>
         
             <div class="row" style="margin-top: 100px;width:500px ;padding-left: 40px;height: 400px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
                 <h1>Veuillez inserer un quantite</h1>
-                <form class="form-horizontal" action="Insert" method="post" style="margin-top: 70px; ">
-                    <div class="form-group">
+                <form class="form-horizontal" action="InsertionQuantite" method="get" style="margin-top: 70px; ">
+                    <div class="form-group" >
                       <label for="inputEmail3" class="col-sm-2 control-label col-lg-4">Style et materiaux</label>
                       <div class="col-sm-10 col-lg-3">
-                       <select name="styleMateriel" id="" class="form-control">
+                       <select name="styleMateriel" id="" class="form-control" style="width: 200px">
                            <% for (int i = 0; i < allSM.length; i++) {%>
                                <option value="<%out.print(allSM[i].getId_style());%>"><%out.print(allS[i].getLibelle());%> , <%out.print(allM[i].getLibelle());%></option>
                            <%}%>

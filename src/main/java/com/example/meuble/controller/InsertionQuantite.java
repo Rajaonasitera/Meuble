@@ -17,6 +17,7 @@ public class InsertionQuantite extends HttpServlet {
         try {
             Connect co = new Connect();
             Connection c = co.connecter();
+            System.out.println("jjgggjgj");
             int idCategorie = Integer.parseInt(request.getParameter("categorie"));
             int idStyleMateriel = Integer.parseInt(request.getParameter("styleMateriel"));
             int idVolume = Integer.parseInt(request.getParameter("volume"));
@@ -27,9 +28,10 @@ public class InsertionQuantite extends HttpServlet {
             double quantite = Double.parseDouble(request.getParameter("quantite"));
             Fabrication f = new Fabrication();
             f.insertionQuantite(c, idCategorie, idStyle, idMateriel, idVolume, quantite);
-            String lien = "Insertion_quantite";
+            String lien = "PageInsertionQuantite";
             response.sendRedirect(lien);
         } catch (Exception e) {
+            e.printStackTrace();
             // TODO: handle exception
         }
     }

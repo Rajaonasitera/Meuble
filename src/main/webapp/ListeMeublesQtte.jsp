@@ -1,11 +1,16 @@
+<%@ page import="com.example.meuble.model.AffichageQuantite" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    AffichageQuantite[] allAQ = (AffichageQuantite[]) request.getAttribute("allAQ");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/css/index.css">
 </head>
 <body style="background-color:#e7e7e7;">
         <nav class="navbar">
@@ -74,9 +79,11 @@
                 <th>Quantite</th>
             </tr>
             <tr>
-                <td>Chaise</td>
-                <td>PM</td>
-                <td>2</td>
+                <% for (int i = 0; i < allAQ.length; i++) {%>
+                <td><%out.print(allAQ[i].getCategorie().getLibelle());%></td>
+                <td><%out.print(allAQ[i].getVolume().getLibelle());%></td>
+                <td><%out.print(allAQ[i].getQuantite());%></td>
+                <%}%>
             </tr>
 
         </table>

@@ -63,7 +63,7 @@ public class Categorie {
                 coTest = true;}
             Categorie allS = new Categorie();
             java.sql.Statement st = c.createStatement();
-            String sql = "select * from Categorie where id_catergorie ="+id_categorie;
+            String sql = "select * from Categorie where id_categorie ="+id_categorie;
             ResultSet res = st.executeQuery(sql);
             while (res.next()) {
                 allS= new Categorie(res.getInt(1),res.getString(2));
